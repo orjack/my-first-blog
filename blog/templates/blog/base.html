@@ -1,0 +1,48 @@
+<!--
+<html>
+    <head>
+        <title>Ola's blog</title>
+    </head>
+    <body>
+        <h1>Um título - para o título mais importante </h1> 
+        <h2>Um sub-título - para um título um nível abaixo</h2> 
+        <h3>Um sub-sub-título ... e por aí vai, até 'h6' </h3> 
+        <em>texto - enfatiza seu texto</em>
+        <br />
+        <strong>text - enfatiza fortemente seu texto</strong>
+        <br /> <br />pula para a próxima linha (você não pode colocar nada dentro de br)
+        <a href="https://djangogirls.org">cria um link</a> 
+        <p>cria uma lista, exatamente como essa!</p>
+        <ul>
+            <li>primeiro item</li>
+            <li>segundo item</li>
+        </ul> 
+        <div>define uma seção da página</div> 
+    </body>
+</html>
+-->
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static '/blog.css' %}">
+    </head>
+    <body>
+        <body>
+                <div class="page-header">
+                    <h1><a href="/">Django Girls Blog</a></h1>
+                </div>
+                <div class="content container">
+                    <div class="row">
+                        <div class="col-md-8">
+                        {% block content %}
+                        {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </body>
+    </body>
+</html>

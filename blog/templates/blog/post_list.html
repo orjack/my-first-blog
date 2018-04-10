@@ -1,45 +1,13 @@
-<!--
-<html>
-    <head>
-        <title>Ola's blog</title>
-    </head>
-    <body>
-        <h1>Um título - para o título mais importante </h1> 
-        <h2>Um sub-título - para um título um nível abaixo</h2> 
-        <h3>Um sub-sub-título ... e por aí vai, até 'h6' </h3> 
-        <em>texto - enfatiza seu texto</em>
-        <br />
-        <strong>text - enfatiza fortemente seu texto</strong>
-        <br /> <br />pula para a próxima linha (você não pode colocar nada dentro de br)
-        <a href="https://djangogirls.org">cria um link</a> 
-        <p>cria uma lista, exatamente como essa!</p>
-        <ul>
-            <li>primeiro item</li>
-            <li>segundo item</li>
-        </ul> 
-        <div>define uma seção da página</div> 
-    </body>
-</html>
--->
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href=""></a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
